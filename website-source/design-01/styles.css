@@ -12,6 +12,10 @@
   right: 0.5rem;
 }
 
+#ecNoReminders {
+  display: none;
+}
+
 .ecrm-container h2 {
   margin: 0;
   color: var(--ians-colour-light-blue);
@@ -22,6 +26,10 @@
 .ecrm-container h2 svg {
   width: var(--step-2);
   margin-left: 0.5rem;
+}
+
+.ecrm-container h2 svg:nth-child(2) {
+  display: none;
 }
 
 .ecrm-container #ecReminders {
