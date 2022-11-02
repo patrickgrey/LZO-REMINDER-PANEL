@@ -1,38 +1,38 @@
 :root {
   --ians-colour-light-grey: #ebebeb;
   --ians-colour-dark-grey: #ccc;
-  --ecrm-bell-list-icon-width: 2rem;
-  --ecrm-priority-high: #ef7564;
-  --ecrm-priority-medium: #f6af3f;
+  --lzo-bell-list-icon-width: 2rem;
+  --lzo-priority-high: #ef7564;
+  --lzo-priority-medium: #f6af3f;
 }
 
-.ecrm-container > button#ecAddReminders {
+.lzo-container > button#lzoAddReminders {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
 }
 
-#ecNoReminders {
+#lzoNoReminders {
   display: none;
 }
 
-.ecrm-container h2 {
+.lzo-container h2 {
   margin: 0;
   color: var(--ians-colour-light-blue);
   font-weight: 500;
   padding-top: 0 !important;
 }
 
-.ecrm-container h2 svg {
+.lzo-container h2 svg {
   width: var(--step-2);
   margin-left: 0.5rem;
 }
 
-.ecrm-container h2 svg:nth-child(2) {
+.lzo-container h2 svg:nth-child(2) {
   display: none;
 }
 
-.ecrm-container #ecReminders {
+.lzo-container #lzoReminders {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -44,7 +44,7 @@
   height: fit-content;
 }
 
-.ecrm-container #ecReminders li {
+.lzo-container #lzoReminders li {
   display: grid;
   grid-template-columns: 3rem 1fr;
   max-width: none;
@@ -53,18 +53,18 @@
   margin: 0;
 }
 
-.ecrm-container #ecReminders li .ecrm-icon-bell {
+.lzo-container #lzoReminders li .lzo-icon-bell {
   color: var(--ians-colour-light-blue);
   padding-left: 0.5rem;
   padding-right: 0.75rem;
 }
 
-.ecrm-container #ecReminders li .ecrm-icon-bell svg {
-  width: var(--ecrm-bell-list-icon-width);
-  height: var(--ecrm-bell-list-icon-width);
+.lzo-container #lzoReminders li .lzo-icon-bell svg {
+  width: var(--lzo-bell-list-icon-width);
+  height: var(--lzo-bell-list-icon-width);
 }
 
-.ecrm-container #ecReminders li > div {
+.lzo-container #lzoReminders li > div {
   vertical-align: top;
   padding: 1rem;
   background-color: var(--ians-colour-light-grey);
@@ -72,23 +72,23 @@
     0 4px 4px rgb(0 0 0 / 4%), 0 8px 8px rgb(0 0 0 / 4%);
 }
 
-.ecrm-container #ecReminders li > div {
+.lzo-container #lzoReminders li > div {
   border-left: 0.6rem solid transparent;
 }
 
-.ecrm-container #ecReminders li > div.ecrm-priority-high {
-  border-left-color: var(--ecrm-priority-high);
+.lzo-container #lzoReminders li > div.lzo-priority-high {
+  border-left-color: var(--lzo-priority-high);
 }
 
-.ecrm-container #ecReminders li > div.ecrm-priority-medium {
-  border-left-color: var(--ecrm-priority-medium);
+.lzo-container #lzoReminders li > div.lzo-priority-medium {
+  border-left-color: var(--lzo-priority-medium);
 }
 
-.ecrm-container #ecReminders li > div.ecrm-priority-low {
+.lzo-container #lzoReminders li > div.lzo-priority-low {
   border-left-color: var(--ians-colour-light-blue);
 }
 
-.ecrm-container #ecReminders li > div > h3 {
+.lzo-container #lzoReminders li > div > h3 {
   margin: 0;
   background-color: white;
   width: fit-content;
@@ -96,7 +96,7 @@
   padding: 0.5rem;
 }
 
-.ecrm-container #ecReminders li > div > h3 > span {
+.lzo-container #lzoReminders li > div > h3 > span {
   background-color: var(--ians-colour-dark-blue);
   color: white;
   text-align: center;

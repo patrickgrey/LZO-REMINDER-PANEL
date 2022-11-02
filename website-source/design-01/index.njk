@@ -4,8 +4,8 @@ title: Reminder Panel Design 01
 useDefaultHeader: false 
 hideBanner: true
 ---
-<div class="grid-container ecrm-container">
-  <button  id="ecAddReminders">Toggle reminders</button>
+<div class="grid-container lzo-container">
+  <button  id="lzoAddReminders">Toggle reminders</button>
   <h2>Reminders
     <!-- Notifications -->
     {% include "./images/icon-bell-notification.svg" %}
@@ -13,24 +13,24 @@ hideBanner: true
     {% include "./images/icon-bell-no-notification.svg" %}
   </h2>
 
-  <p id="ecNoReminders">You have no reminders.</p>
+  <p id="lzoNoReminders">You have no reminders.</p>
 
-  <ul id="ecReminders">
+  <ul id="lzoReminders">
     <li>
-      <span class="ecrm-icon-bell">{% include "./images/icon-bell.svg" %}</span>
-      <div class="ecrm-priority-high">
+      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+      <div class="lzo-priority-high">
         <h3>
           <span>3</span>Course attendance input{{s}} outstanding
         </h3>
         <p>Show xxxxx (details summary list of associated content)</p>
-        <p>info / guidance. <a href="#">Link to help</a>
+        <p class="lzo-guidance">info / guidance. <a href="#">Link to help</a>
         </p>
         <p>(icon) Deadline: <span>18th Nov 2022</span></p>
       </div>
     </li>
     <li>
-      <span class="ecrm-icon-bell">{% include "./images/icon-bell.svg" %}</span>
-      <div class="ecrm-priority-medium">
+      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+      <div class="lzo-priority-medium">
         <h3>
           <span>1</span>Course attendance input{{s}} outstanding</h3>
         <p>info / guidance. <a href="#">Link to help</a>
@@ -39,8 +39,8 @@ hideBanner: true
       </div>
     </li>
     <li>
-      <span class="ecrm-icon-bell">{% include "./images/icon-bell.svg" %}</span>
-      <div class="ecrm-priority-low">
+      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+      <div class="lzo-priority-low">
         <h3>
           <span>1</span>Course attendance input{{s}} outstanding</h3>
         <p>info / guidance. <a href="#">Link to help</a>
@@ -49,7 +49,7 @@ hideBanner: true
       </div>
     </li>
     <li>
-      <span class="ecrm-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
       <div>
         <h3>
           <span>1</span>Course attendance input{{s}} outstanding</h3>
