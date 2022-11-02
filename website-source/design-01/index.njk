@@ -12,9 +12,9 @@ hideBanner: true
     <!-- No notifications -->
     {% include "./images/icon-bell-no-notification.svg" %}
   </h2>
-
+  <!-- No notifications -->
   <p id="lzoNoReminders">You have no reminders.</p>
-
+  <!-- Notifications -->
   <ul id="lzoReminders">
     <li>
       <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
@@ -22,20 +22,23 @@ hideBanner: true
         <h3>
           <span>3</span>Course attendance input{{s}} outstanding
         </h3>
-        <p>Show xxxxx (details summary list of associated content)</p>
-        <p class="lzo-guidance">info / guidance. <a href="#">Link to help</a>
+        <p class="lzo-guidance">
+          {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue.<br/>
+          <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p>(icon) Deadline: <span>18th Nov 2022</span></p>
+        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
       </div>
     </li>
     <li>
       <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
       <div class="lzo-priority-medium">
         <h3>
-          <span>1</span>Course attendance input{{s}} outstanding</h3>
-        <p>info / guidance. <a href="#">Link to help</a>
+          <span>1</span>Course attendance input{{s}} outstanding very long reminder title very long reminder title very long reminder title very long reminder title</h3>
+        <p class="lzo-guidance">
+          {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication.<br/>
+          <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p>(icon) Deadline: <span>18th Nov 2022</span></p>
+        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
       </div>
     </li>
     <li>
@@ -43,9 +46,11 @@ hideBanner: true
       <div class="lzo-priority-low">
         <h3>
           <span>1</span>Course attendance input{{s}} outstanding</h3>
-        <p>info / guidance. <a href="#">Link to help</a>
+        <p class="lzo-guidance">
+          {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication.<br/>
+          <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p>(icon) Deadline: <span>18th Nov 2022</span></p>
+        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
       </div>
     </li>
     <li>
@@ -53,9 +58,11 @@ hideBanner: true
       <div>
         <h3>
           <span>1</span>Course attendance input{{s}} outstanding</h3>
-        <p>info / guidance. <a href="#">Link to help</a>
+        <p class="lzo-guidance">
+          {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication.<br/>
+          <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p>(icon) Deadline: <span>18th Nov 2022</span></p>
+        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
       </div>
     </li>
   </ul>

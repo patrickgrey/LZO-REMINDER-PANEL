@@ -1,6 +1,6 @@
 :root {
   --ians-colour-light-grey: #ebebeb;
-  --ians-colour-dark-grey: #ccc;
+  --ians-colour-dark-grey: #777;
   --lzo-bell-list-icon-width: 2rem;
   --lzo-priority-high: #ef7564;
   --lzo-priority-medium: #f6af3f;
@@ -21,6 +21,7 @@
   color: var(--ians-colour-light-blue);
   font-weight: 500;
   padding-top: 0 !important;
+  margin-bottom: 1rem;
 }
 
 .lzo-container h2 svg {
@@ -92,7 +93,7 @@
   margin: 0;
   background-color: white;
   width: fit-content;
-  line-height: 1;
+  line-height: 1.2;
   padding: 0.5rem;
 }
 
@@ -103,4 +104,29 @@
   margin-right: 0.4rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.lzo-container .lzo-guidance {
+  color: var(--ians-colour-light-blue);
+  font-weight: 500;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.lzo-container .lzo-guidance > svg {
+  width: var(--step-2);
+  height: var(--step-2);
+  vertical-align: middle;
+  fill: white;
+  margin-right: 0.25rem;
+}
+
+.lzo-container .lzo-deadline {
+  margin: 0;
+  margin-top: 1rem;
+  font-size: var(--step--1);
+  padding: 0.5rem 1rem;
+  background-color: white;
+  font-weight: 500;
+  width: fit-content;
 }
