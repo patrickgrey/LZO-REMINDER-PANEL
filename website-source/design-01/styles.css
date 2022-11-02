@@ -1,13 +1,30 @@
 :root {
   --ians-colour-light-grey: #ebebeb;
+  --ians-colour-dark-grey: #ccc;
+  --ecrm-bell-list-icon-width: 2rem;
+  --ecrm-priority-high: #ef7564;
+  --ecrm-priority-medium: #f6af3f;
 }
-h2 {
+
+.ecrm-container > button#ecAddReminders {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.ecrm-container h2 {
+  margin: 0;
   color: var(--ians-colour-light-blue);
   font-weight: 500;
   padding-top: 0 !important;
 }
 
-#ecReminders {
+.ecrm-container h2 svg {
+  width: var(--step-2);
+  margin-left: 0.5rem;
+}
+
+.ecrm-container #ecReminders {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -19,13 +36,63 @@ h2 {
   height: fit-content;
 }
 
-#ecReminders li {
-  position: relative;
+.ecrm-container #ecReminders li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
   max-width: none;
-  background-color: var(--ians-colour-light-grey);
-  padding: 10px 20px;
+  padding: 0;
+  padding-bottom: 1rem;
   margin: 0;
-  margin-bottom: 2%;
+}
+
+.ecrm-container #ecReminders li .ecrm-icon-bell {
+  color: var(--ians-colour-light-blue);
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+}
+
+.ecrm-container #ecReminders li .ecrm-icon-bell svg {
+  width: var(--ecrm-bell-list-icon-width);
+  height: var(--ecrm-bell-list-icon-width);
+}
+
+.ecrm-container #ecReminders li > div {
+  vertical-align: top;
+  padding: 1rem;
+  background-color: var(--ians-colour-light-grey);
   box-shadow: 0 1px 1px rgb(0 0 0 / 4%), 0 2px 2px rgb(0 0 0 / 4%),
     0 4px 4px rgb(0 0 0 / 4%), 0 8px 8px rgb(0 0 0 / 4%);
+}
+
+.ecrm-container #ecReminders li > div {
+  border-left: 0.6rem solid transparent;
+}
+
+.ecrm-container #ecReminders li > div.ecrm-priority-high {
+  border-left-color: var(--ecrm-priority-high);
+}
+
+.ecrm-container #ecReminders li > div.ecrm-priority-medium {
+  border-left-color: var(--ecrm-priority-medium);
+}
+
+.ecrm-container #ecReminders li > div.ecrm-priority-low {
+  border-left-color: var(--ians-colour-light-blue);
+}
+
+.ecrm-container #ecReminders li > div > h3 {
+  margin: 0;
+  background-color: white;
+  width: fit-content;
+  line-height: 1;
+  padding: 0.5rem;
+}
+
+.ecrm-container #ecReminders li > div > h3 > span {
+  background-color: var(--ians-colour-dark-blue);
+  color: white;
+  text-align: center;
+  margin-right: 0.4rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }

@@ -3,6 +3,7 @@ const Image = require("@11ty/eleventy-img");
 const CleanCSS = require("clean-css");
 const { minify } = require("terser");
 const path = require("path");
+const svgContents = require("eleventy-plugin-svg-contents");
 
 async function imageShortcode(src, alt, cls, sizes, widths, formats) {
   const imagePath = path.dirname(src);
