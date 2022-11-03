@@ -24,14 +24,14 @@
   --size-500: 3rem;
 
   /* Type scale */
-  --step--2: clamp(0.69rem, calc(0.68rem + 0.05vw), 0.72rem);
-  --step--1: clamp(0.83rem, calc(0.81rem + 0.13vw), 0.9rem);
-  --step-0: clamp(1rem, calc(0.95rem + 0.24vw), 1.13rem);
-  --step-1: clamp(1.2rem, calc(1.12rem + 0.4vw), 1.41rem);
-  --step-2: clamp(1.44rem, calc(1.32rem + 0.62vw), 1.76rem);
-  --step-3: clamp(1.73rem, calc(1.54rem + 0.92vw), 2.2rem);
-  --step-4: clamp(2.07rem, calc(1.81rem + 1.31vw), 2.75rem);
-  --step-5: clamp(2.49rem, calc(2.12rem + 1.84vw), 3.43rem);
+  --step--2: clamp(0.61rem, calc(0.59rem + 0.06vw), 0.64rem);
+  --step--1: clamp(0.73rem, calc(0.7rem + 0.14vw), 0.8rem);
+  --step-0: clamp(0.88rem, calc(0.83rem + 0.24vw), 1rem);
+  --step-1: clamp(1.05rem, calc(0.97rem + 0.39vw), 1.25rem);
+  --step-2: clamp(1.26rem, calc(1.14rem + 0.59vw), 1.56rem);
+  --step-3: clamp(1.51rem, calc(1.34rem + 0.86vw), 1.95rem);
+  --step-4: clamp(1.81rem, calc(1.57rem + 1.22vw), 2.44rem);
+  --step-5: clamp(2.18rem, calc(1.84rem + 1.71vw), 3.05rem);
 
   --column-max-width: 75ch;
 

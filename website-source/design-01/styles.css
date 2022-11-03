@@ -101,11 +101,12 @@
 }
 
 .lzo-container #lzoReminders > li > div h3 {
+  font-size: var(--step-1);
   position: relative;
   margin: 0;
   background-color: white;
   width: fit-content;
-  line-height: 1.2;
+  line-height: 1.4;
   padding: 0.5rem;
   padding-right: 2rem;
 }
@@ -173,15 +174,16 @@
   font-weight: 500;
   margin: 0;
   margin-top: 1rem;
+  display: none;
 }
 
-.lzo-container .lzo-guidance > svg {
+/* .lzo-container .lzo-guidance > svg {
   width: var(--step-2);
   height: var(--step-2);
   vertical-align: middle;
   fill: white;
   margin-right: 0.25rem;
-}
+} */
 
 .lzo-container .lzo-deadline {
   margin: 0;
@@ -192,6 +194,10 @@
   font-weight: 700;
   width: fit-content;
   color: (--lzo-colour-dark-grey);
+}
+
+.lzo-deadline {
+  margin-top: 0 !important;
 }
 
 .lzo-container .lzo-deadline > svg {
@@ -212,6 +218,23 @@
 .lzo-container .lzo-priority-low .lzo-deadline {
   background-color: var(--ians-colour-light-blue);
   color: white;
+}
+
+.lzo-bottom-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.lzo-bottom-container button > svg {
+  height: var(--step-2);
+  width: var(--step-2);
+  vertical-align: top;
+  margin-right: 0.4rem;
+}
+
+.lzo-button-tasks > svg {
+  transform: rotate(-90deg);
 }
 
 @media print, screen and (min-width: 34.4375em) {

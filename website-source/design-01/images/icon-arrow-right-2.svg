@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M0,44V0H44V44H0Z" fill="none"/>
+  <circle cx="22" cy="22" r="16.5" />
+  <line x1="22" y1="29.3" x2="29.3" y2="22" />
+  <line x1="14.7" y1="22" x2="29.3" y2="22" />
+  <line x1="22" y1="14.7" x2="29.3" y2="22" />
+</svg>
