@@ -221,9 +221,10 @@
 }
 
 .lzo-bottom-container {
-  display: flex;
-  gap: 1rem;
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .lzo-bottom-container button > svg {
@@ -243,6 +244,11 @@
 @media print, screen and (min-width: 50.0625em) {
   .lzo-container #lzoReminders li {
     padding-bottom: 1.5rem;
+  }
+
+  .lzo-bottom-container {
+    flex-direction: row;
+    gap: 1rem;
   }
 }
 
