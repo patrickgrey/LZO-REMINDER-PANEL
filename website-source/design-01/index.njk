@@ -19,14 +19,24 @@ hideBanner: true
     <li>
       <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
       <div class="lzo-priority-high">
-        <h3>
-          <span>3</span>Course attendance input{{s}} outstanding
+        <details>
+          <summary>
+            <h3>
+              <span>3</span>Course attendance input{{s}} outstanding
         </h3>
+          </summary>
+          <ul>
+            <li>Item detail 1</li>
+            <li>Item detail 2 blah de blah Item detail 2 blah de blah Item detail 2 blah de blah Item detail 2 blah de blahItem detail 2 blah de blahItem detail 2 blah de blah</li>
+            <li>Item detail 3</li>
+          </ul>
+        </details>
+
         <p class="lzo-guidance">
           {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue.<br/>
           <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
       </div>
     </li>
     <li>
@@ -38,7 +48,7 @@ hideBanner: true
           {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication.<br/>
           <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
       </div>
     </li>
     <li>
@@ -50,7 +60,7 @@ hideBanner: true
           {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication.<br/>
           <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
       </div>
     </li>
     <li>
@@ -62,7 +72,7 @@ hideBanner: true
           {% include "./images/icon-info-circle.svg" %}You need to complete all the fields required for publication.<br/>
           <a href="#" target="_blank">Please refer to this help section.</a>
         </p>
-        <p class="lzo-deadline">Deadline: 18th Nov 2022</p>
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
       </div>
     </li>
   </ul>

@@ -1,6 +1,6 @@
 :root {
-  --ians-colour-light-grey: #ebebeb;
-  --ians-colour-dark-grey: #777;
+  --lzo-colour-light-grey: #ebebeb;
+  --lzo-colour-dark-grey: #777;
   --lzo-bell-list-icon-width: 2rem;
   --lzo-priority-high: #ef7564;
   --lzo-priority-medium: #f6af3f;
@@ -14,6 +14,8 @@
 
 #lzoNoReminders {
   display: none;
+  color: var(--ians-colour-dark-blue);
+  font-weight: 500;
 }
 
 .lzo-container h2 {
@@ -45,7 +47,7 @@
   height: fit-content;
 }
 
-.lzo-container #lzoReminders li {
+.lzo-container #lzoReminders > li {
   display: grid;
   grid-template-columns: 3rem 1fr;
   max-width: none;
@@ -54,50 +56,101 @@
   margin: 0;
 }
 
-.lzo-container #lzoReminders li .lzo-icon-bell {
+.lzo-container #lzoReminders > li .lzo-icon-bell {
   color: var(--ians-colour-light-blue);
   padding-left: 0.5rem;
   padding-right: 0.75rem;
 }
 
-.lzo-container #lzoReminders li .lzo-icon-bell svg {
+.lzo-container #lzoReminders > li .lzo-icon-bell svg {
   width: var(--lzo-bell-list-icon-width);
   height: var(--lzo-bell-list-icon-width);
 }
 
-.lzo-container #lzoReminders li > div {
+.lzo-container #lzoReminders > li > div {
   vertical-align: top;
   padding: 1rem;
-  background-color: var(--ians-colour-light-grey);
+  background-color: var(--lzo-colour-light-grey);
   box-shadow: 0 1px 1px rgb(0 0 0 / 4%), 0 2px 2px rgb(0 0 0 / 4%),
     0 4px 4px rgb(0 0 0 / 4%), 0 8px 8px rgb(0 0 0 / 4%);
 }
 
-.lzo-container #lzoReminders li > div {
+.lzo-container #lzoReminders > li > div {
   border-left: 0.6rem solid transparent;
 }
 
-.lzo-container #lzoReminders li > div.lzo-priority-high {
+.lzo-container #lzoReminders > li > div.lzo-priority-high {
   border-left-color: var(--lzo-priority-high);
 }
 
-.lzo-container #lzoReminders li > div.lzo-priority-medium {
+.lzo-container #lzoReminders > li > div.lzo-priority-medium {
   border-left-color: var(--lzo-priority-medium);
 }
 
-.lzo-container #lzoReminders li > div.lzo-priority-low {
+.lzo-container #lzoReminders > li > div.lzo-priority-low {
   border-left-color: var(--ians-colour-light-blue);
 }
 
-.lzo-container #lzoReminders li > div > h3 {
+.lzo-container #lzoReminders > li > div h3 {
+  position: relative;
   margin: 0;
   background-color: white;
   width: fit-content;
   line-height: 1.2;
   padding: 0.5rem;
+  padding-right: 2rem;
 }
 
-.lzo-container #lzoReminders li > div > h3 > span {
+.lzo-container #lzoReminders > li > div summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.lzo-container #lzoReminders > li > div summary::-webkit-details-marker {
+  display: none;
+}
+
+.lzo-container #lzoReminders > li > div summary > h3::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 10px;
+  border-color: transparent transparent transparent var(--ians-colour-dark-blue);
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s;
+}
+
+.lzo-container #lzoReminders > li > div details[open] summary > h3::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.lzo-container #lzoReminders > li > div summary > h3 {
+  display: inline-block;
+}
+
+.lzo-container #lzoReminders > li > div details ul {
+  list-style-type: none;
+  margin-top: 0.25rem;
+}
+
+.lzo-container #lzoReminders > li > div details li {
+  margin: 0;
+  margin-bottom: 0.25rem;
+  background-color: white;
+  /* width: fit-content; */
+  line-height: 1.2;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  font-weight: 500;
+  color: var(--ians-colour-dark-blue);
+}
+
+.lzo-container #lzoReminders > li > div h3 > span {
   background-color: var(--ians-colour-dark-blue);
   color: white;
   text-align: center;
@@ -125,8 +178,41 @@
   margin: 0;
   margin-top: 1rem;
   font-size: var(--step--1);
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
   background-color: white;
-  font-weight: 500;
+  font-weight: 700;
   width: fit-content;
+  color: (--lzo-colour-dark-grey);
+}
+
+.lzo-container .lzo-deadline > svg {
+  color: (--lzo-colour-dark-grey);
+  width: var(--step-0);
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.lzo-container .lzo-priority-high .lzo-deadline {
+  background-color: var(--lzo-priority-high);
+}
+
+.lzo-container .lzo-priority-medium .lzo-deadline {
+  background-color: var(--lzo-priority-medium);
+}
+
+.lzo-container .lzo-priority-low .lzo-deadline {
+  background-color: var(--ians-colour-light-blue);
+  color: white;
+}
+
+@media print, screen and (min-width: 34.4375em) {
+}
+
+@media print, screen and (min-width: 50.0625em) {
+  .lzo-container #lzoReminders li {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 80.0625em) {
 }
