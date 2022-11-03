@@ -20,7 +20,6 @@ breadcrumb: []
     {% if devEnvironment.environment === 'dev' %}
       <link rel="stylesheet" href="/_shared/css/guide.css">
       <link rel="stylesheet" href="/_shared/css/shared.css">
-      <link rel="stylesheet" href="/_shared/css/dev-only.css">
     {% else %}
       <style>
         {{css | cssmin | safe}}

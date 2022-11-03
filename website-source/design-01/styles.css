@@ -4,6 +4,15 @@
   --lzo-bell-list-icon-width: 2rem;
   --lzo-priority-high: #ef7564;
   --lzo-priority-medium: #f6af3f;
+  --theme-setting-globalwidth: 1280px;
+}
+
+.grid-container {
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
+  max-width: var(--theme-setting-globalwidth, 1280px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .lzo-container > button#lzoAddReminders {
