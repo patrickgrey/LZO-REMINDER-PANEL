@@ -72,7 +72,7 @@
 .lzo-panel-reminder button {
   cursor: pointer;
   background-color: white;
-  padding: var(--size-25) var(--size-75);
+  padding: 0.5rem var(--size-75);
   padding-left: 0.35rem;
   color: var(--ians-colour-light-blue);
   border: 1px solid var(--ians-colour-light-blue);
