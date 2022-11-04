@@ -274,7 +274,7 @@
 
 .lzo-panel-reminder .lzo-deadline {
   margin: 0;
-  margin-top: 1rem;
+  margin-top: 0 !important;
   font-size: var(--step--1);
   padding: 0.5rem 1rem;
   background-color: white;
@@ -283,24 +283,24 @@
   color: (--lzo-colour-dark-grey);
 }
 
-.lzo-panel-reminder .lzo-deadline {
-  margin-top: 0 !important;
-}
-
 .lzo-panel-reminder .lzo-deadline > svg {
   color: (--lzo-colour-dark-grey);
-  width: var(--step-0);
-  height: var(--step-0);
+  width: var(--step-2);
+  height: var(--step-2);
   margin-right: 0.25rem;
-  vertical-align: middle;
+  vertical-align: bottom;
+  /* border-radius: 50%;
+  padding: 0.15rem; */
 }
 
 .lzo-panel-reminder .lzo-priority-high .lzo-deadline {
-  background-color: var(--lzo-priority-high);
+  /* background-color: var(--lzo-priority-high); */
+  border-left: 0.6rem solid var(--lzo-priority-high);
 }
 
 .lzo-panel-reminder .lzo-priority-medium .lzo-deadline {
-  background-color: var(--lzo-priority-medium);
+  /* background-color: var(--lzo-priority-medium); */
+  border-left: 0.6rem solid var(--lzo-priority-medium);
 }
 
 .lzo-panel-reminder .lzo-bottom-container {
