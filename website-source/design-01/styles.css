@@ -32,6 +32,8 @@
   --ians-colour-light-blue: #2990ea;
   --ians-colour-dark-blue: #003366;
   --ians-colour-light-grey: #efefef;
+  --ians-colour-dark-grey: #222;
+  --ians-colour-gold: #fc0;
 }
 
 *,
@@ -71,12 +73,21 @@
   cursor: pointer;
   background-color: white;
   padding: var(--size-25) var(--size-75);
+  padding-left: 0.35rem;
   color: var(--ians-colour-light-blue);
   border: 1px solid var(--ians-colour-light-blue);
   border-radius: 3px;
   transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
   font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.lzo-panel-reminder button svg {
+  vertial-align: middle !important;
+  width: var(--size-200) !important;
+  height: var(--size-200) !important;
 }
 
 .lzo-panel-reminder button:hover {
@@ -107,6 +118,7 @@
 
 .lzo-panel-reminder h2 {
   margin: 0;
+  margin-top: 1rem;
   color: var(--ians-colour-dark-blue);
   font-weight: 700;
   font-size: var(--step-2);
@@ -117,6 +129,7 @@
 .lzo-panel-reminder h2 svg {
   width: var(--step-2);
   margin-left: 0.5rem;
+  vertical-align: middle;
 }
 
 .lzo-panel-reminder h2 svg:nth-child(2) {
@@ -136,6 +149,7 @@
 }
 
 .lzo-panel-reminder #lzoReminders > li {
+  position: relative;
   display: grid;
   grid-template-columns: 3rem 1fr;
   max-width: none;
@@ -175,10 +189,6 @@
   border-left-color: var(--lzo-priority-medium);
 }
 
-.lzo-panel-reminder #lzoReminders > li > div.lzo-priority-low {
-  border-left-color: var(--ians-colour-light-blue);
-}
-
 .lzo-panel-reminder #lzoReminders > li > div h3 {
   font-size: var(--step-1);
   position: relative;
@@ -187,12 +197,17 @@
   width: fit-content;
   line-height: 1.4;
   padding: 0.5rem;
-  padding-right: 2rem;
+  font-weight: 500;
+}
+
+.lzo-panel-reminder #lzoReminders > li > div details {
+  width: fit-content;
 }
 
 .lzo-panel-reminder #lzoReminders > li > div summary {
   cursor: pointer;
   list-style: none;
+  width: fit-content;
 }
 
 .lzo-panel-reminder #lzoReminders > li > div summary::-webkit-details-marker {
@@ -220,6 +235,7 @@
 
 .lzo-panel-reminder #lzoReminders > li > div summary > h3 {
   display: inline-block;
+  padding-right: 2rem;
 }
 
 .lzo-panel-reminder #lzoReminders > li > div details ul {
@@ -249,7 +265,7 @@
 }
 
 .lzo-panel-reminder .lzo-guidance {
-  color: var(--ians-colour-light-blue);
+  color: var(--ians-colour-dark-grey);
   font-weight: 500;
   margin: 0;
   margin-top: 1rem;
@@ -287,16 +303,12 @@
   background-color: var(--lzo-priority-medium);
 }
 
-.lzo-panel-reminder .lzo-priority-low .lzo-deadline {
-  background-color: var(--ians-colour-light-blue);
-  color: white;
-}
-
 .lzo-panel-reminder .lzo-bottom-container {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: fit-content;
 }
 
 .lzo-panel-reminder .lzo-bottom-container button > svg {
@@ -308,6 +320,11 @@
 
 .lzo-panel-reminder .lzo-button-tasks > svg {
   transform: rotate(-90deg);
+}
+
+.lzo-panel-reminder .lzo-button-tasks {
+  background-color: var(--ians-colour-gold);
+  color: var(--ians-colour-dark-grey);
 }
 
 @media print, screen and (min-width: 34.4375em) {
