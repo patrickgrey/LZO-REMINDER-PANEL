@@ -2,94 +2,97 @@
 layout: layouts/base.njk
 title: Reminder Panel Design 01 
 useDefaultHeader: false 
-hideBanner: true
+hideBanner: true 
 ---
-<div class="grid-container lzo-container">
-  <button  id="lzoAddReminders">Toggle reminders</button>
-  <h2>Reminders
+{% if devEnvironment.environment === 'dev' %}
+  <div id="lzoToggleButtons">
+    <button  id="lzoAddReminders">Toggle reminders</button>
+    <button  id="lzoToggleStylesheet">Toggle stylesheet</button>
+  </div>
+{% endif %}
+<h2>Reminders
     <!-- Notifications -->
-    {% include "./images/icon-bell-notification.svg" %}
-    <!-- No notifications -->
-    {% include "./images/icon-bell-no-notification.svg" %}
-  </h2>
+  {% include "./images/icon-bell-notification.svg" %}
   <!-- No notifications -->
-  <p id="lzoNoReminders">You have no reminders.</p>
-  <!-- Notifications -->
-  <ul id="lzoReminders">
-    <li>
-      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
-      <div class="lzo-priority-high">
-        <details>
-          <summary>
-            <h3>
-              <span>3</span>Course attendance input{{s}} outstanding
+  {% include "./images/icon-bell-no-notification.svg" %}
+</h2>
+<!-- No notifications -->
+<p id="lzoNoReminders">You have no reminders.</p>
+<!-- Notifications -->
+<ul id="lzoReminders">
+  <li>
+    <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+    <div class="lzo-priority-high">
+      <details>
+        <summary>
+          <h3>
+            <span>3</span>Course attendance input{{s}} outstanding
         </h3>
-          </summary>
-          <ul>
-            <li>Item detail 1</li>
-            <li>Item detail 2 blah de blah Item detail 2 blah de blah Item detail 2 blah de blah Item detail 2 blah de blahItem detail 2 blah de blahItem detail 2 blah de blah</li>
-            <li>Item detail 3</li>
-          </ul>
-        </details>
+        </summary>
+        <ul>
+          <li>Item detail 1</li>
+          <li>Item detail 2 blah de blah Item detail 2 blah de blah Item detail 2 blah de blah Item detail 2 blah de blahItem detail 2 blah de blahItem detail 2 blah de blah</li>
+          <li>Item detail 3</li>
+        </ul>
+      </details>
 
-        <div class="lzo-bottom-container">
-          <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
-          <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
-          <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
-        </div>
-        <p class="lzo-guidance">
+      <div class="lzo-bottom-container">
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
+        <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
+        <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
+      </div>
+      <p class="lzo-guidance">
           You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue. 
           <a href="#" target="_blank">Please refer to this help section.</a>
-        </p>
+      </p>
+    </div>
+  </li>
+  <li>
+    <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+    <div class="lzo-priority-medium">
+      <h3>
+        <span>1</span>Course attendance input{{s}} outstanding very long reminder title very long reminder title very long reminder title very long reminder title</h3>
+      <div class="lzo-bottom-container">
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
+        <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
+        <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
       </div>
-    </li>
-    <li>
-      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
-      <div class="lzo-priority-medium">
-        <h3>
-          <span>1</span>Course attendance input{{s}} outstanding very long reminder title very long reminder title very long reminder title very long reminder title</h3>
-        <div class="lzo-bottom-container">
-          <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
-          <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
-          <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
-        </div>
-        <p class="lzo-guidance">
+      <p class="lzo-guidance">
           You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue. 
           <a href="#" target="_blank">Please refer to this help section.</a>
-        </p>
+      </p>
+    </div>
+  </li>
+  <li>
+    <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+    <div class="lzo-priority-low">
+      <h3>
+        <span>1</span>Course attendance input{{s}} outstanding</h3>
+      <div class="lzo-bottom-container">
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
+        <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
+        <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
       </div>
-    </li>
-    <li>
-      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
-      <div class="lzo-priority-low">
-        <h3>
-          <span>1</span>Course attendance input{{s}} outstanding</h3>
-        <div class="lzo-bottom-container">
-          <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
-          <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
-          <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
-        </div>
-        <p class="lzo-guidance">
+      <p class="lzo-guidance">
           You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue. 
           <a href="#" target="_blank">Please refer to this help section.</a>
-        </p>
+      </p>
+    </div>
+  </li>
+  <li>
+    <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
+    <div>
+      <h3>
+        <span>1</span>Course attendance input{{s}} outstanding</h3>
+      <div class="lzo-bottom-container">
+        <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
+        <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
+        <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
       </div>
-    </li>
-    <li>
-      <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
-      <div>
-        <h3>
-          <span>1</span>Course attendance input{{s}} outstanding</h3>
-        <div class="lzo-bottom-container">
-          <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p>
-          <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
-          <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
-        </div>
-        <p class="lzo-guidance">
+      <p class="lzo-guidance">
           You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue. 
           <a href="#" target="_blank">Please refer to this help section.</a>
-        </p>
-      </div>
-    </li>
-  </ul>
-</div>
+      </p>
+    </div>
+  </li>
+</ul>
