@@ -21,7 +21,7 @@ breadcrumb: []
     {% endif %}
 
   </head>
-  <body>
+  <body data-is-dev={% if devEnvironment.environment === "dev" %}"true" {% else %}"false"{% endif %}>
 
     <div class="grid-container lzo-panel-reminder">
 
