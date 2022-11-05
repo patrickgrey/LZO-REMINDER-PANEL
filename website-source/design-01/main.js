@@ -60,6 +60,20 @@
 
   function initUI(data) {
     console.log(data);
+    if (data.length === 0) {
+      ecNoReminders.style.display = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)").style.display = "inline-block";
+      return;
+    }
+    document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "inline-block";
+
+    for (let index = 0; index < data.length; index++) {
+      // const liObject = data[index];
+      // const li = document.createElement("li");
+      // ecReminders.appendChild(li);
+
+      // Clone a hidden object like MUAC CV
+    }
+
   }
 
   async function loadData(person_ID) {
@@ -79,6 +93,7 @@
         initUI(responseData);
       }
       else {
+        console.log(response);
         errorLabel.textContent = "Error: " + (responseData && responseData.message) || response.status;
         errorLabel.style.display = "block";
       }

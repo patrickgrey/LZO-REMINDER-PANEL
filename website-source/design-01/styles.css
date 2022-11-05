@@ -130,9 +130,6 @@
   width: var(--step-2);
   margin-left: 0.5rem;
   vertical-align: middle;
-}
-
-.lzo-panel-reminder h2 svg {
   display: none;
 }
 
@@ -348,6 +345,10 @@
   color: red;
   font-weight: bold;
   font-size: 2rem;
+  display: none;
+}
+
+#lzoCloneDaddy {
   display: none;
 }
 
