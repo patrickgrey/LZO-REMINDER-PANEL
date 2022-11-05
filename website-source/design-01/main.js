@@ -4,12 +4,20 @@
   const svg2 = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)");
   const ecReminders = document.querySelector("#lzoReminders");
   const ecNoReminders = document.querySelector("#lzoNoReminders");
-
   const isDev = document.body.dataset.isDev;
-  if (isDev) console.log("isDev: ", isDev);
 
   function convertRemToPixels(rem) {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  }
+
+  const debounce = (callback, wait) => {
+    let timeoutId = null;
+    return (...args) => {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        callback.apply(null, args);
+      }, wait);
+    };
   }
 
   function positionButtons() {
@@ -34,15 +42,6 @@
 
   positionButtons();
 
-  const debounce = (callback, wait) => {
-    let timeoutId = null;
-    return (...args) => {
-      window.clearTimeout(timeoutId);
-      timeoutId = window.setTimeout(() => {
-        callback.apply(null, args);
-      }, wait);
-    };
-  }
 
   const handleResize = debounce((event) => {
     positionButtons();
@@ -58,6 +57,38 @@
       guidance.style.display = isBlock ? "none" : "block";
     });
   });
+
+  function initUI(data) {
+    console.log(data);
+  }
+
+  async function loadData(person_ID) {
+    const errorLabel = document.querySelector("#lzoErrorFeedback");
+    const data = { person_ID };
+    const url = isDev ? "./data/reminders.json" : "API here";
+    try {
+      const response = await fetch(url,
+        {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+      const responseData = await response.json();
+      document.querySelector("#lzoLoading").style.display = "none";
+      if (response.ok) {
+        initUI(responseData);
+      }
+      else {
+        errorLabel.textContent = "Error: " + (responseData && responseData.message) || response.status;
+        errorLabel.style.display = "block";
+      }
+    }
+    catch (error) {
+      errorLabel.textContent = "Error: " + error;
+    }
+  }
+
+  loadData();
 
   // DEV ONLY
   let hasReminders = true;

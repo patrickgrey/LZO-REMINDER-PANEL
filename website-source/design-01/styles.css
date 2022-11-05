@@ -132,7 +132,7 @@
   vertical-align: middle;
 }
 
-.lzo-panel-reminder h2 svg:nth-child(2) {
+.lzo-panel-reminder h2 svg {
   display: none;
 }
 
@@ -342,6 +342,13 @@
   margin-right: 0.25rem;
   vertical-align: top;
   animation: rotation 1s infinite linear;
+}
+
+#lzoErrorFeedback {
+  color: red;
+  font-weight: bold;
+  font-size: 2rem;
+  display: none;
 }
 
 @media print, screen and (min-width: 34.4375em) {

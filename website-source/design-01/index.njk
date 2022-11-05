@@ -17,11 +17,12 @@ hideBanner: true
   {% include "./images/icon-bell-no-notification.svg" %}
 </h2>
 <p id="lzoLoading">{% include "./images/icon-loader.svg" %}Loading</p>
+<p id="lzoErrorFeedback">Error!</p>
 <!-- No notifications -->
 <p id="lzoNoReminders">You have no reminders.</p>
 <!-- Notifications -->
 <ul id="lzoReminders">
-  <li>
+  {# <li>
     <span class="lzo-icon-bell">{% include "./images/icon-bell.svg" %}</span>
     <div class="lzo-priority-high">
       <details>
@@ -71,7 +72,6 @@ hideBanner: true
       <h3>
         <span>1</span>Course attendance input{{s}} outstanding a bit longer</h3>
       <div class="lzo-bottom-container">
-        {# <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p> #}
         <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
         <button class="lzo-button-help">{% include "./images/icon-help.svg" %}Help</button>
         <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
@@ -88,7 +88,6 @@ hideBanner: true
       <h3>
         <span>1</span>Course attendance input{{s}} outstanding very long reminder title very long reminder title very long reminder title very long reminder title</h3>
       <div class="lzo-bottom-container">
-        {# <p class="lzo-deadline">{% include "./images/icon-calendar.svg" %}Deadline: 18th Nov 2022</p> #}
         <button class="lzo-button-guidance">{% include "./images/icon-info-circle.svg" %}Guidance</button>
         <button class="lzo-button-help">{% include "./images/icon-help.svg" %}Help</button>
         <button class="lzo-button-tasks">{% include "./images/icon-arrow-right.svg" %}Go to task</button>
@@ -98,5 +97,5 @@ hideBanner: true
           <a href="#" target="_blank">Please refer to this help section.</a>
       </p>
     </div>
-  </li>
+  </li> #}
 </ul>
