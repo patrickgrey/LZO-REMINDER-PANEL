@@ -5,6 +5,9 @@
   const ecReminders = document.querySelector("#lzoReminders");
   const ecNoReminders = document.querySelector("#lzoNoReminders");
 
+  const isDev = document.body.dataset.isDev;
+  if (isDev) console.log("isDev: ", isDev);
+
   function convertRemToPixels(rem) {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
   }

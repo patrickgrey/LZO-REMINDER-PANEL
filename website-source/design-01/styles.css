@@ -327,6 +327,23 @@
   color: var(--ians-colour-dark-grey);
 }
 
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+#lzoLoading svg {
+  height: var(--step-2);
+  width: var(--step-2);
+  margin-right: 0.25rem;
+  vertical-align: top;
+  animation: rotation 1s infinite linear;
+}
+
 @media print, screen and (min-width: 34.4375em) {
 }
 
