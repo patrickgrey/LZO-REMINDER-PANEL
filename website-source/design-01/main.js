@@ -62,12 +62,7 @@
 
     for (let index = 0; index < data.length; index++) {
       const liObject = data[index];
-      // const li = document.createElement("li");
-      // lzoReminders.appendChild(li);
-
-      // Clone a hidden object like MUAC CV
       const clone = lzoCloneDaddy.querySelector("li").cloneNode(true);
-      // clone.querySelector("h3 > span").textContent = liObject.task_items.length > 0 ? liObject.task_items.length.toString() : "1";
       const h3 = clone.querySelector("h3");
       const taskContainer = clone.querySelector(".lzo-task-container");
       const details = clone.querySelector("details");
@@ -79,6 +74,8 @@
       const guidance = clone.querySelector(".lzo-guidance");
       const buttonHelp = clone.querySelector(".lzo-button-help");
       const buttonTask = clone.querySelector(".lzo-button-tasks");
+
+      clone.dataset.taskId = liObject.task_ID;
 
 
       if (liObject.task_priority != "") {
