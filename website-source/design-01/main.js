@@ -1,5 +1,62 @@
 (function () {
 
+  const devData = [
+    {
+      "person_ID": 12345,
+      "task_ID": 1,
+      "task_priority": "high",
+      "task_title": "Course attendance input outstanding a bit longer",
+      "task_items": [
+        {
+          "item_title": "Item detail 1"
+        },
+        {
+          "item_title": "Item detail 2"
+        },
+        {
+          "item_title": "Item detail 3"
+        }
+      ],
+      "task_deadline": "18th Nov 2022",
+      "task_guidance": "You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue.",
+      "task_help_link": "http://localhost:8080/design-01/",
+      "task_link": "http://localhost:8080/design-01/"
+    },
+    {
+      "person_ID": 12345,
+      "task_ID": 2,
+      "task_priority": "medium",
+      "task_title": "Course attendance input outstanding",
+      "task_items": [],
+      "task_deadline": "18th Nov 2022",
+      "task_guidance": "You need to complete all the fields required for publication, i.e. those needed in the catalogue.",
+      "task_help_link": "",
+      "task_link": "http://localhost:8080/design-01/"
+    },
+    {
+      "person_ID": 12345,
+      "task_ID": 3,
+      "task_priority": "",
+      "task_title": "Course attendance input outstanding a bit longer",
+      "task_items": [],
+      "task_deadline": "18th Nov 2022",
+      "task_guidance": "",
+      "task_help_link": "http://localhost:8080/design-01/",
+      "task_link": "http://localhost:8080/design-01/"
+    },
+    {
+      "person_ID": 12345,
+      "task_ID": 4,
+      "task_priority": "",
+      "task_title": "Course attendance input outstanding very long reminder title very long reminder title very long reminder title very long reminder title title very long reminder title",
+      "task_items": [],
+      "task_deadline": "",
+      "task_guidance": "",
+      "task_help_link": "http://localhost:8080/design-01/",
+      "task_link": "http://localhost:8080/design-01/"
+    }
+  ];
+
   const svg1 = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)");
   const svg2 = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)");
   const lzoReminders = document.querySelector("#lzoReminders");
@@ -143,8 +200,20 @@
     });
   }
 
+  const asyncTimeout = (ms) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  };
+
   async function loadData(person_ID) {
     const errorLabel = document.querySelector("#lzoErrorFeedback");
+    await asyncTimeout(1500);
+    // Temp dev solution
+    // initUI(devData);
+    // document.querySelector("#lzoLoading").style.display = "none";
+    // return;
+
     const data = { person_ID };
     const url = isDev ? "./data/reminders.json" : "API here";
     try {
