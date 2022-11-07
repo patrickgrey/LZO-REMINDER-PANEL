@@ -6,15 +6,12 @@
     "task_title": "Course attendance input outstanding a bit longer",
     "task_items": [
       {
-        "item_id": "item01",
         "item_title": "Item detail 1"
       },
       {
-        "item_id": "item02",
         "item_title": "Item detail 2"
       },
       {
-        "item_id": "item03",
         "item_title": "Item detail 3"
       }
     ],
@@ -30,7 +27,7 @@
     "task_title": "Course attendance input outstanding",
     "task_items": [],
     "task_deadline": "18th Nov 2022",
-    "task_guidance": "You need to complete all the fields required for publication, i.e. those needed in the catalogue. <a href='#' target='_blank'>Please refer to this help section.</a>",
+    "task_guidance": "You need to complete all the fields required for publication, i.e. those needed in the catalogue.",
     "task_help_link": "",
     "task_link": "http://localhost:8080/design-01/"
   },
@@ -40,7 +37,7 @@
     "task_priority": "",
     "task_title": "Course attendance input outstanding a bit longer",
     "task_items": [],
-    "task_deadline": "",
+    "task_deadline": "18th Nov 2022",
     "task_guidance": "",
     "task_help_link": "http://localhost:8080/design-01/",
     "task_link": "http://localhost:8080/design-01/"
