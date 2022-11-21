@@ -10,9 +10,6 @@
       },
       {
         "item_title": "Item detail 2"
-      },
-      {
-        "item_title": "Item detail 3"
       }
     ],
     "task_deadline": "18th Nov 2022",
@@ -23,7 +20,7 @@
   {
     "person_ID": 12345,
     "task_ID": 2,
-    "task_priority": "medium",
+    "task_priority": "high",
     "task_title": "Course attendance input outstanding",
     "task_items": [],
     "task_deadline": "18th Nov 2022",

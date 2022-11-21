@@ -6,69 +6,14 @@
   //    No model, just update the page when data received.
   //    https://github.com/thoov/mock-socket
 
-  const reminderWebSocket = "wss://learningzone.eurocontrol.int/ilp/customs/Reports/reminderWebSocket";
-
-
-  const devData = [
-    {
-      "person_ID": 12345,
-      "task_ID": 1,
-      "task_priority": "high",
-      "task_title": "Course attendance input outstanding a bit longer",
-      "task_items": [
-        {
-          "item_title": "Item detail 1"
-        },
-        {
-          "item_title": "Item detail 2"
-        },
-        {
-          "item_title": "Item detail 3"
-        }
-      ],
-      "task_deadline": "18th Nov 2022",
-      "task_guidance": "You need to complete all the fields required for publication, i.e. those needed in the catalogue, and send this course for approval, so it can be added to the catalogue.",
-      "task_help_link": "http://localhost:8080/design-01/",
-      "task_link": "http://localhost:8080/design-01/"
-    },
-    {
-      "person_ID": 12345,
-      "task_ID": 2,
-      "task_priority": "medium",
-      "task_title": "Course attendance input outstanding",
-      "task_items": [],
-      "task_deadline": "18th Nov 2022",
-      "task_guidance": "You need to complete all the fields required for publication, i.e. those needed in the catalogue.",
-      "task_help_link": "",
-      "task_link": "http://localhost:8080/design-01/"
-    },
-    {
-      "person_ID": 12345,
-      "task_ID": 3,
-      "task_priority": "",
-      "task_title": "Course attendance input outstanding a bit longer",
-      "task_items": [],
-      "task_deadline": "18th Nov 2022",
-      "task_guidance": "",
-      "task_help_link": "http://localhost:8080/design-01/",
-      "task_link": "http://localhost:8080/design-01/"
-    },
-    {
-      "person_ID": 12345,
-      "task_ID": 4,
-      "task_priority": "",
-      "task_title": "Course attendance input outstanding very long reminder title very long reminder title very long reminder title very long reminder title title very long reminder title",
-      "task_items": [],
-      "task_deadline": "",
-      "task_guidance": "",
-      "task_help_link": "http://localhost:8080/design-01/",
-      "task_link": "http://localhost:8080/design-01/"
-    }
-  ];
+  const reminderWebSocket = `wss://learningzonetest.eurocontrol.int/ilp/customs/Reports/UsingWebSockets/WebSocketsServer.ashx`;
+  const reminderAPI = ``;
+  let firstDataLoaded = false;
 
   const svg1 = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)");
   const svg2 = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)");
   const lzoReminders = document.querySelector("#lzoReminders");
+  const lzoLoading = document.querySelector("#lzoLoading");
   const lzoNoReminders = document.querySelector("#lzoNoReminders");
   const isDev = document.body.dataset.isDev;
 
@@ -114,10 +59,10 @@
 
   window.addEventListener('resize', handleResize);
 
-
   async function updateUI(data) {
+    lzoLoading.style.display = "none";
+    lzoNoReminders.style.display = "none";
     lzoReminders.classList.add("lzo-list-hide");
-    await asyncTimeout(110);
 
     if (data.length === 0) {
       lzoNoReminders.style.display = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)").style.display = "inline-block";
@@ -125,6 +70,7 @@
     }
     document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "inline-block";
 
+    await asyncTimeout(110);
     lzoReminders.innerHTML = "";
 
     const lzoCloneDaddy = document.querySelector("#lzoCloneDaddy");
@@ -212,6 +158,11 @@
 
     await asyncTimeout(300);
     lzoReminders.classList.remove("lzo-list-hide");
+
+    if (!firstDataLoaded && !isDev) {
+      firstDataLoaded = true;
+      initWebSocket();
+    }
   }
 
   const asyncTimeout = (ms) => {
@@ -220,14 +171,15 @@
     });
   };
 
-  async function loadDevData() {
+  async function loadData(devURL) {
     const errorLabel = document.querySelector("#lzoErrorFeedback");
+    const url = isDev ? devURL : reminderAPI;
     try {
-      const response = await fetch("./data/reminders.json",
+      const response = await fetch(url,
         {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ person_ID: "123" })
+          body: JSON.stringify({})
         });
       const data = await response.json();
       if (response.ok) {
@@ -243,13 +195,20 @@
     }
   }
 
+
+
   async function initWebSocket() {
     if (isDev) {
-      await asyncTimeout(1500);
-      loadDevData();
+      loadData("./data/reminders-2.json");
     }
     else {
       const reminderSocket = new WebSocket(reminderWebSocket, "json");
+
+      console.log("reminderSocket.readyState: ", reminderSocket.readyState);
+
+      reminderSocket.addEventListener('open', (event) => {
+        console.log("cocket open:", reminderSocket.readyState);
+      });
 
       reminderSocket.addEventListener('message', (event) => {
         var data = JSON.parse(event.data);
@@ -267,21 +226,21 @@
     }
   }
 
-  initWebSocket();
 
-  // Two options: 
-  // 1: web socket sends message to say tasks have been updated
-  // then we fetch the data from the API.
-  // 2: web socket returns the new data, having called the API itself.
-  function initTitle() {
-    if (document.querySelector("#lzoReminders").childElementCount
-      === 0) {
-      lzoNoReminders.style.display = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)").style.display = "inline-block";
-    } else {
-      document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "inline-block";
+
+  async function init() {
+    if (isDev) {
+      await asyncTimeout(1000);
+      loadData("./data/reminders.json");
+      await asyncTimeout(3500);
+      initWebSocket();
+    }
+    else {
+      loadData();
     }
   }
-  initTitle();
+
+  init();
 
   // DEV ONLY
   let hasReminders = true;
