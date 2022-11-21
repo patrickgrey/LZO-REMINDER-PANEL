@@ -195,8 +195,6 @@
     }
   }
 
-
-
   async function initWebSocket() {
     if (isDev) {
       loadData("./data/reminders-2.json");
@@ -231,7 +229,8 @@
   async function init() {
     if (isDev) {
       await asyncTimeout(1000);
-      loadData("./data/reminders.json");
+      loadData("./data/reminders-empty.json");
+      // loadData("./data/reminders.json");
       await asyncTimeout(3500);
       initWebSocket();
     }
