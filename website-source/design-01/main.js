@@ -65,10 +65,14 @@
     lzoReminders.classList.add("lzo-list-hide");
 
     if (data.length === 0) {
+      document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "none";
       lzoNoReminders.style.display = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)").style.display = "inline-block";
       return;
     }
-    document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "inline-block";
+    else {
+      document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)").style.display = "none";
+      document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "inline-block";
+    }
 
     await asyncTimeout(110);
     lzoReminders.innerHTML = "";
