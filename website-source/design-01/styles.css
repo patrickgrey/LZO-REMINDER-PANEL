@@ -146,6 +146,12 @@
       (100% - var(--wb-logo-left) - var(--wb-logo-width))
   );
   height: fit-content;
+  transition: opacity 0.3s;
+}
+
+.lzo-panel-reminder #lzoReminders.lzo-list-hide {
+  opacity: 0;
+  transition: opacity 0.1s;
 }
 
 .lzo-panel-reminder #lzoReminders > li {
@@ -336,6 +342,10 @@
   to {
     transform: rotate(359deg);
   }
+}
+
+#lzoLoading {
+  display: none;
 }
 
 #lzoLoading svg {

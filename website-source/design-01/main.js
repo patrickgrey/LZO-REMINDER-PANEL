@@ -1,5 +1,14 @@
 (function () {
 
+  // Get data from page to model? Maybe as can then check
+  // Model against incoming data?
+  // What is the simplest solution??
+  //    No model, just update the page when data received.
+  //    https://github.com/thoov/mock-socket
+
+  const reminderWebSocket = "wss://learningzone.eurocontrol.int/ilp/customs/Reports/reminderWebSocket";
+
+
   const devData = [
     {
       "person_ID": 12345,
@@ -106,16 +115,19 @@
   window.addEventListener('resize', handleResize);
 
 
+  async function updateUI(data) {
+    lzoReminders.classList.add("lzo-list-hide");
+    await asyncTimeout(110);
 
-  function initUI(data) {
     if (data.length === 0) {
       lzoNoReminders.style.display = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)").style.display = "inline-block";
       return;
     }
     document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "inline-block";
 
-    const lzoCloneDaddy = document.querySelector("#lzoCloneDaddy");
+    lzoReminders.innerHTML = "";
 
+    const lzoCloneDaddy = document.querySelector("#lzoCloneDaddy");
 
     for (let index = 0; index < data.length; index++) {
       const liObject = data[index];
@@ -133,7 +145,6 @@
       const buttonTask = clone.querySelector(".lzo-button-tasks");
 
       clone.dataset.taskId = liObject.task_ID;
-
 
       if (liObject.task_priority != "") {
         taskContainer.classList.add(`lzo-priority-${liObject.task_priority}`);
@@ -186,8 +197,8 @@
       else {
         buttonTask.remove();
       }
-
     }
+
     positionButtons();
 
     document.querySelectorAll(".lzo-button-guidance").forEach(button => {
@@ -198,6 +209,9 @@
         guidance.style.display = isBlock ? "none" : "block";
       });
     });
+
+    await asyncTimeout(300);
+    lzoReminders.classList.remove("lzo-list-hide");
   }
 
   const asyncTimeout = (ms) => {
@@ -206,30 +220,21 @@
     });
   };
 
-  async function loadData(person_ID) {
+  async function loadDevData() {
     const errorLabel = document.querySelector("#lzoErrorFeedback");
-    await asyncTimeout(1500);
-    // Temp dev solution
-    // initUI(devData);
-    // document.querySelector("#lzoLoading").style.display = "none";
-    // return;
-
-    const data = { person_ID };
-    const url = isDev ? "./data/reminders.json" : "API here";
     try {
-      const response = await fetch(url,
+      const response = await fetch("./data/reminders.json",
         {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
+          body: JSON.stringify({ person_ID: "123" })
         });
-      const responseData = await response.json();
-      document.querySelector("#lzoLoading").style.display = "none";
+      const data = await response.json();
       if (response.ok) {
-        initUI(responseData);
+        updateUI(data);
       }
       else {
-        errorLabel.textContent = "Error: " + (responseData && responseData.message) || response.status;
+        errorLabel.textContent = "Error: " + (data && data.message) || response.status;
         errorLabel.style.display = "block";
       }
     }
@@ -238,7 +243,45 @@
     }
   }
 
-  loadData();
+  async function initWebSocket() {
+    if (isDev) {
+      await asyncTimeout(1500);
+      loadDevData();
+    }
+    else {
+      const reminderSocket = new WebSocket(reminderWebSocket, "json");
+
+      reminderSocket.addEventListener('message', (event) => {
+        var data = JSON.parse(event.data);
+        loadData(data);
+      });
+
+      reminderSocket.addEventListener('error', (event) => {
+        console.log('WebSocket error: ', event);
+      });
+
+      window.onbeforeunload = function () {
+        reminderSocket.onclose = function () { }; // disable onclose handler first
+        reminderSocket.close();
+      };
+    }
+  }
+
+  initWebSocket();
+
+  // Two options: 
+  // 1: web socket sends message to say tasks have been updated
+  // then we fetch the data from the API.
+  // 2: web socket returns the new data, having called the API itself.
+  function initTitle() {
+    if (document.querySelector("#lzoReminders").childElementCount
+      === 0) {
+      lzoNoReminders.style.display = document.querySelector(".lzo-panel-reminder h2 svg:nth-child(2)").style.display = "inline-block";
+    } else {
+      document.querySelector(".lzo-panel-reminder h2 svg:nth-child(1)").style.display = "inline-block";
+    }
+  }
+  initTitle();
 
   // DEV ONLY
   let hasReminders = true;
