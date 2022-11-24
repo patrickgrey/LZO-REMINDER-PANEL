@@ -15,7 +15,10 @@
   const lzoReminders = document.querySelector("#lzoReminders");
   const lzoLoading = document.querySelector("#lzoLoading");
   const lzoNoReminders = document.querySelector("#lzoNoReminders");
-  const isDev = document.body.dataset.isDev;
+  const isDev = document
+    .querySelector("#lzo-panel-reminder")
+    .dataset
+    .isDev;
 
   function convertRemToPixels(rem) {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
