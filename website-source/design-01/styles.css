@@ -72,9 +72,10 @@
 .lzo-panel-reminder button,
 .lzo-bottom-container > a {
   cursor: pointer;
+  display: inline-block;
   background-color: white;
-  padding: 0.5rem var(--size-75);
-  padding-left: 0.35rem;
+  padding: 0.5rem var(--size-75) 0.5rem var(--size-50);
+  /* padding-left: 0.35rem; */
   color: var(--ians-colour-light-blue);
   border: 1px solid var(--ians-colour-light-blue);
   border-radius: 3px;
@@ -84,6 +85,8 @@
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
+  text-align: left;
+  width: fit-content;
 }
 
 .lzo-panel-reminder button > svg,
@@ -91,6 +94,18 @@
   vertical-align: middle !important;
   width: var(--size-200) !important;
   height: var(--size-200) !important;
+}
+
+.lzo-panel-reminder button > span,
+.lzo-bottom-container > a > span {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .lzo-panel-reminder button > span,
+  .lzo-bottom-container > a > span {
+    display: inline-block;
+  }
 }
 
 .lzo-panel-reminder button:hover {
@@ -289,6 +304,7 @@
   font-weight: 700;
   width: fit-content;
   color: (--lzo-colour-dark-grey);
+  margin-bottom: 0.5rem;
 }
 
 .lzo-panel-reminder .lzo-deadline > svg {
@@ -313,10 +329,17 @@
 
 .lzo-panel-reminder .lzo-bottom-container {
   margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   gap: 0.5rem;
   width: fit-content;
+}
+
+@media screen and (min-width: 700px) {
+  .lzo-panel-reminder .lzo-bottom-container {
+    display: flex;
+    /* flex-direction: column; */
+  }
 }
 
 .lzo-panel-reminder .lzo-bottom-container button > svg,
@@ -324,7 +347,7 @@
   height: var(--step-2);
   width: var(--step-2);
   vertical-align: top;
-  margin-right: 0.4rem;
+  /* margin-right: 0.4rem; */
 }
 
 .lzo-panel-reminder .lzo-button-tasks > svg {
