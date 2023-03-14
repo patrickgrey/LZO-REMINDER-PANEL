@@ -73,7 +73,7 @@
 .lzo-bottom-container > a {
   cursor: pointer;
   display: inline-block;
-  background-color: white;
+  background-color: var(--lzo-colour-light-grey);
   padding: 0.5rem var(--size-75);
   /* padding-left: 0.35rem; */
   color: var(--ians-colour-light-blue);
