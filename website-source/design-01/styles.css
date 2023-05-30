@@ -192,7 +192,7 @@
   grid-template-columns: 3rem 1fr;
   max-width: none;
   padding: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0.75rem;
   margin: 0;
 }
 
@@ -209,7 +209,7 @@
 
 .lzo-panel-reminder #lzoReminders > li > div {
   vertical-align: top;
-  padding: 0.8rem 1rem;
+  padding: 0.4rem 1rem;
   background-color: var(--lzo-colour-light-grey);
   box-shadow: 0 1px 1px rgb(0 0 0 / 4%), 0 2px 2px rgb(0 0 0 / 4%),
     0 4px 4px rgb(0 0 0 / 4%), 0 8px 8px rgb(0 0 0 / 4%);
@@ -409,7 +409,7 @@
 
 @media print, screen and (min-width: 50.0625em) {
   .lzo-panel-reminder #lzoReminders li {
-    padding-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
   }
 
   .lzo-panel-reminder .lzo-bottom-container {

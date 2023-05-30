@@ -40,13 +40,13 @@
       const buttons = li.querySelector(".lzo-bottom-container");
       if ((title.clientWidth + buttons.clientWidth + convertRemToPixels(7) < li.clientWidth) && window.innerWidth > 800) {
         buttons.style.position = "absolute";
-        buttons.style.top = "1rem";
+        buttons.style.top = "0.5rem";
         buttons.style.right = "1rem";
         buttons.style.marginTop = "0";
       }
       else {
         buttons.style.position = "relative";
-        buttons.style.marginTop = "1rem";
+        buttons.style.marginTop = "0.5rem";
         buttons.style.top = "0";
         buttons.style.right = "0";
       }
@@ -235,10 +235,10 @@
 
   async function init() {
     if (isDev) {
-      await asyncTimeout(1000);
-      loadData("./data/reminders-empty.json");
-      // loadData("./data/reminders.json");
-      await asyncTimeout(3500);
+      await asyncTimeout(500);
+      // loadData("./data/reminders-empty.json");
+      loadData("./data/reminders.json");
+      await asyncTimeout(500);
       initWebSocket();
     }
     else {
