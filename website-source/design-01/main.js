@@ -63,6 +63,8 @@
   window.addEventListener('resize', handleResize);
 
   async function updateUI(data) {
+    console.log("updateUI: ", data);
+
     lzoLoading.style.display = "none";
     lzoNoReminders.style.display = "none";
     lzoReminders.classList.add("lzo-list-hide");
@@ -179,6 +181,8 @@
   };
 
   async function loadData(devURL) {
+    console.log("devURL: ", devURL);
+
     const errorLabel = document.querySelector("#lzoErrorFeedback");
     const url = isDev ? devURL : reminderAPI;
     try {
@@ -237,7 +241,7 @@
     if (isDev) {
       await asyncTimeout(500);
       // loadData("./data/reminders-empty.json");
-      loadData("./data/reminders.json");
+      // loadData("./data/reminders.json");
       await asyncTimeout(500);
       initWebSocket();
     }
